@@ -8,16 +8,6 @@
         update_cache: yes
         upgrade: yes
 
-    - name: Install micro editor
-      apt:
-        name: micro
-        state: present
-
-    - name: Install Git
-      apt:
-        name: git
-        state: present
-
     - name: Install Python and pip
       apt:
         name:
@@ -36,51 +26,6 @@
         dest: '~/.tmux'
         version: master
       notify: Enable mouse in tmux
-
-    - name: Install zsh
-      apt:
-        name: zsh
-        state: present
-
-    - name: Install Oh My Zsh
-      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-    - name: Install exa
-      apt:
-        name: exa
-        state: present
-
-    - name: Install bat
-      apt:
-        name: bat
-        state: present
-
-    - name: Ensure .zshrc exists
-      copy:
-        dest: "~/.zshrc"
-        content: "# Zsh configuration file\n"
-        force: no  # This ensures the file is not overwritten if it already exists
-
-    - name: Ensure .tmux.conf exists
-      copy:
-        dest: "~/.tmux.conf"
-        content: "# Tmux configuration file\n"
-        force: no  # This ensures the file is not overwritten if it already exists
-
-    - name: Set zsh as the default shell
-      user:
-        name: "{{ ansible_user }}"
-        shell: /usr/bin/zsh
-
-    - name: Add aliases to .zshrc
-      blockinfile:
-        path: ~/.zshrc
-        block: |
-          alias ll="exa -ah"
-          alias cat="bat"
-          alias cls="clear"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK FOR ALIASES"
-        create: yes
 
   handlers:
     - name: Enable mouse in tmux
