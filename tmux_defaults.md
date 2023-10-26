@@ -37,3 +37,23 @@ In `tmux`, there are default key bindings for most of the operations we discusse
    - There isn't a default binding to reload the configuration, but you can use the command `tmux source-file ~/.tmux.conf` directly in your terminal. Some users set up custom bindings like `Ctrl-b r` for convenience.
 
 It's good to remember these defaults, especially when working on a system that doesn't have a custom `tmux` configuration.
+
+
+ctrl+b %                               SPLIT VERTICALLY
+ctrl+b "                               split horizontally
+
+ctrl+b arrow keys                      move/focus cursor to pane
+ctrl+b p                               focus/switch previous window
+ctrl+b n                               focus/switch next window
+
+ctrl+b c                               create new window
+ctrl+d                                 kill/exit pane/window
+
+ctrl+b ,                               rename window
+ctrl+b 0/1/2/3..                       move/focus to window number
+
+Ctrl-b d                               detach from session
+tmux a -t <session-name/ID>            attach to specific session
+
+tmux new-session -s <session-name>     create new session with name
+tmux kill-session -t <session-name>    kill session
