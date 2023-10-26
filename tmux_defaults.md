@@ -38,7 +38,7 @@ In `tmux`, there are default key bindings for most of the operations we discusse
 
 It's good to remember these defaults, especially when working on a system that doesn't have a custom `tmux` configuration.
 
-
+```
 ctrl+b %                               SPLIT VERTICALLY
 ctrl+b "                               split horizontally
 
@@ -57,3 +57,11 @@ tmux a -t <session-name/ID>            attach to specific session
 
 tmux new-session -s <session-name>     create new session with name
 tmux kill-session -t <session-name>    kill session
+
+```
+
+# Use Ctrl-A r to reload configuration
+```bind r source-file ~/.tmux.conf```
+
+# Mouse mode (for scrolling and selecting panes)
+```set -g mouse on```
